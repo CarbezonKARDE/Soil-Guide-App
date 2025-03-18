@@ -142,9 +142,10 @@ sequenceDiagram
 ---
 
 # 📧 Contact
-***GitHub: CarbezonKARDE***
+**GitHub: CarbezonKARDE**
 
-***Email: taskforkarde@gmail.com***
+**Email: taskforkarde@gmail.com**
+
 ---
 📜 License
 This project is licensed under the MIT License. See [LICENSE](LICENSE.txt) for details.
