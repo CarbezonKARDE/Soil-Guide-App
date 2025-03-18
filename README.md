@@ -1,6 +1,6 @@
 # 🌱 Soil Guide App
 
-[![Android Version](https://img.shields.io/badge/Android-12%2B-brightgreen)](https://www.android.com)
+[![Android Version](https://img.shields.io/badge/Android-10%2B-brightgreen)](https://www.android.com)
 [![Java Version](https://img.shields.io/badge/Java-11-blue)](https://www.java.com)
 [![License](https://img.shields.io/badge/License-MIT-orange)](LICENSE)
 
