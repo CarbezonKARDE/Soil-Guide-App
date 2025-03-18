@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Soil Guide</string>
+    <string name="soil_image">Soil image</string> <!-- Add this line -->
+</resources>
