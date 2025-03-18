@@ -48,6 +48,8 @@
 
 4. **Use the back button to return to the list.**
 
+---
+
 ## 📊 UML Diagrams
 
 1. **Class Diagram:**
