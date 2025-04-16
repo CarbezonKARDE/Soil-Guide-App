@@ -8,8 +8,8 @@
 **Soil Guide** is an intelligent Android application designed to empower farmers, gardeners, and agricultural professionals with comprehensive soil analysis and crop optimization tools.
 
 <p align="center">
-  <img src="temp/1.png" width="200" alt="Main Screen" hspace="10">
-  <img src="temp/2.png" width="200" alt="Detail Screen" hspace="10">
+  <img src="temp/soil.png" width="200" alt="Main Screen" hspace="10">
+  <img src="temp/filter.png" width="200" alt="Detail Screen" hspace="10">
 </p>
 
 ---
