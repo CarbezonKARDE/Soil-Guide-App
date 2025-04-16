@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pH Level"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etPhLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g., 6.5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Suitable Crops"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etCrops"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g., Rice, Wheat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nutrient Content"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etNutrients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g., High in potash" />
+
+</LinearLayout>
