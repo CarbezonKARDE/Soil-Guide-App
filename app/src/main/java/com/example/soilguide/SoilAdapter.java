@@ -1,96 +1,57 @@
-package com.example.soilguide;
+// SoilAdapter.java
+package com.example.soilappadv1;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.List;
 
-public class SoilAdapter extends RecyclerView.Adapter<SoilAdapter.SoilViewHolder> implements Filterable {
-    private List<Soil> soilList;
-    private List<Soil> soilListFull;
-    private final OnSoilClickListener listener;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class SoilAdapter extends RecyclerView.Adapter<SoilAdapter.SoilViewHolder> {
+
+    private ArrayList<Soil> soils;
+    private OnSoilClickListener listener;
 
     public interface OnSoilClickListener {
-        void onSoilClick(int position);
+        void onSoilClick(Soil soil);
     }
 
-    public SoilAdapter(List<Soil> soilList, OnSoilClickListener listener) {
-        this.soilList = soilList;
+    public SoilAdapter(ArrayList<Soil> soils, OnSoilClickListener listener) {
+        this.soils = soils;
         this.listener = listener;
-        soilListFull = new ArrayList<>(soilList);
     }
 
-    @NonNull
     @Override
-    public SoilViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_soil, parent, false);
+    public SoilViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.soil_card_item, parent, false);
         return new SoilViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SoilViewHolder holder, int position) {
-        Soil soil = soilList.get(position);
-        holder.imageView.setImageResource(soil.getImageResource());
-        holder.textView.setText(soil.getName());
-        holder.itemView.setOnClickListener(v -> listener.onSoilClick(position));
+    public void onBindViewHolder(SoilViewHolder holder, int position) {
+        Soil soil = soils.get(position);
+        holder.tvSoilName.setText(soil.getName());
+        holder.ivSoilImage.setImageResource(soil.getImageResource());
+        holder.itemView.setOnClickListener(v -> listener.onSoilClick(soil));
     }
 
     @Override
     public int getItemCount() {
-        return soilList.size();
+        return soils.size();
     }
 
-    static class SoilViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        TextView textView;
+    public static class SoilViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivSoilImage;
+        TextView tvSoilName;
 
-        SoilViewHolder(View itemView) {
+        public SoilViewHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.image_view);
-            textView = itemView.findViewById(R.id.text_view);
+            ivSoilImage = itemView.findViewById(R.id.ivSoilImage);
+            tvSoilName = itemView.findViewById(R.id.tvSoilName);
         }
     }
-
-    @Override
-    public Filter getFilter() {
-        return soilFilter;
-    }
-
-    private final Filter soilFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<Soil> filteredList = new ArrayList<>();
-
-            if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(soilListFull);
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-
-                for (Soil item : soilListFull) {
-                    if (item.getName().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    }
-                }
-            }
-
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            soilList.clear();
-            soilList.addAll((List) results.values);
-            notifyDataSetChanged();
-        }
-    };
 }
