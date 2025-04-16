@@ -1,38 +1,50 @@
-package com.example.soilguide;
+// DetailActivity.java
+package com.example.soilappadv1;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailActivity extends AppCompatActivity {
+
+    private ImageView ivDetailImage;
+    private TextView tvDetailName, tvDetailDescription, tvDetailIrrigation,
+            tvDetailCrops, tvDetailPh, tvDetailNutrients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        // Retrieve the Soil object passed from MainActivity
-        Soil soil = getIntent().getParcelableExtra("SOIL_DATA");
 
-        // Find views in the layout
-        ImageView imageView = findViewById(R.id.detail_image);
-        TextView name = findViewById(R.id.detail_name);
-        TextView description = findViewById(R.id.detail_description);
-        TextView irrigation = findViewById(R.id.detail_irrigation);
-        TextView crops = findViewById(R.id.detail_crops);
-        TextView phLevel = findViewById(R.id.detail_ph); // New TextView for pH level
-        TextView nutrientContent = findViewById(R.id.detail_nutrients); // New TextView for nutrient content
+        ivDetailImage = findViewById(R.id.ivDetailImage);
+        tvDetailName = findViewById(R.id.tvDetailName);
+        tvDetailDescription = findViewById(R.id.tvDetailDescription);
+        tvDetailIrrigation = findViewById(R.id.tvDetailIrrigation);
+        tvDetailCrops = findViewById(R.id.tvDetailCrops);
+        tvDetailPh = findViewById(R.id.tvDetailPh);
+        tvDetailNutrients = findViewById(R.id.tvDetailNutrients);
 
-        // Display the soil data
-        if (soil != null) {
-            imageView.setImageResource(soil.getImageResource());
-            name.setText(soil.getName());
-            description.setText(soil.getDescription());
-            irrigation.setText("Irrigation: " + soil.getIrrigation()); // Add label
-            crops.setText("Suitable Crops: " + soil.getSuitableCrops()); // Add label
-            phLevel.setText("pH Level: " + soil.getPhLevel()); // Display pH level
-            nutrientContent.setText("Nutrient Content: " + soil.getNutrientContent()); // Display nutrient content
+        // Retrieve the passed data
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String name = extras.getString("name");
+            int imageResource = extras.getInt("imageResource");
+            String description = extras.getString("description");
+            String irrigation = extras.getString("irrigation");
+            String suitableCrops = extras.getString("suitableCrops");
+            String phLevel = extras.getString("phLevel");
+            String nutrientContent = extras.getString("nutrientContent");
+
+            ivDetailImage.setImageResource(imageResource);
+            tvDetailName.setText(name);
+            tvDetailDescription.setText("Description: " + description);
+            tvDetailIrrigation.setText("Irrigation: " + irrigation);
+            tvDetailCrops.setText("Suitable Crops: " + suitableCrops);
+            tvDetailPh.setText("pH Level: " + phLevel);
+            tvDetailNutrients.setText("Nutrient Content: " + nutrientContent);
         }
     }
 }
