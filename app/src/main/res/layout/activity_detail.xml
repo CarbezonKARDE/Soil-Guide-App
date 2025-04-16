@@ -1,89 +1,151 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:padding="16dp">
+    android:background="@android:color/white"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- CardView for the soil image -->
+        <!-- Soil Image in a CardView -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="12dp"
             app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/cardBackground">
+            app:cardBackgroundColor="@android:color/white">
 
             <ImageView
-                android:id="@+id/detail_image"
+                android:id="@+id/ivDetailImage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="250dp"
                 android:scaleType="centerCrop"
-                android:background="@color/colorPrimary"/>
+                android:contentDescription="Soil Image" />
+
         </androidx.cardview.widget.CardView>
 
-        <!-- Soil Name -->
-        <TextView
-            android:id="@+id/detail_name"
+        <!-- Soil Details in a CardView -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textSize="24sp"
-            android:textColor="@color/textColorPrimary"
-            android:textStyle="bold"/>
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@android:color/white">
 
-        <!-- Soil Description -->
-        <TextView
-            android:id="@+id/detail_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/textColorSecondary"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <!-- Irrigation Information -->
-        <TextView
-            android:id="@+id/detail_irrigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/textColorPrimary"
-            android:textStyle="bold"
-            android:text="Irrigation:"/>
+                <!-- Soil Name -->
+                <TextView
+                    android:id="@+id/tvDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/black"
+                    android:paddingBottom="8dp" />
 
-        <!-- Suitable Crops -->
-        <TextView
-            android:id="@+id/detail_crops"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/textColorPrimary"
-            android:textStyle="bold"
-            android:text="Suitable Crops:"/>
+                <!-- Description -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:paddingTop="8dp" />
 
-        <!-- pH Level -->
-        <TextView
-            android:id="@+id/detail_ph"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/textColorPrimary"
-            android:textStyle="bold"
-            android:text="pH Level:"/>
+                <TextView
+                    android:id="@+id/tvDetailDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="4dp" />
 
-        <!-- Nutrient Content -->
-        <TextView
-            android:id="@+id/detail_nutrients"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/textColorPrimary"
-            android:textStyle="bold"
-            android:text="Nutrient Content:"/>
+                <!-- Irrigation -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Irrigation"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:paddingTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvDetailIrrigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="4dp" />
+
+                <!-- Suitable Crops -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Suitable Crops"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:paddingTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvDetailCrops"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="4dp" />
+
+                <!-- pH Level -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pH Level"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:paddingTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvDetailPh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="4dp" />
+
+                <!-- Nutrient Content -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nutrient Content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray"
+                    android:paddingTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvDetailNutrients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="4dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>
